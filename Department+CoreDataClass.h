@@ -2,7 +2,7 @@
 //  Department+CoreDataClass.h
 //  CoreDataSample
 //
-//  Created by webwerks on 04/08/17.
+//  Created by MukeshLokare on 04/08/17.
 //  Copyright © 2017 smart. All rights reserved.
 //
 

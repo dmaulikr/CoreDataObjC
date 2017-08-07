@@ -2,7 +2,7 @@
 //  AppDelegate.h
 //  CoreDataSample
 //
-//  Created by webwerks on 31/07/17.
+//  Created by MukeshLokare on 31/07/17.
 //  Copyright © 2017 smart. All rights reserved.
 //
 
@@ -13,10 +13,16 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (readonly, strong) NSPersistentContainer *persistentContainer;
-
+@property (strong, nonatomic) NSManagedObjectContext
+*managedObjectContext;
+@property (strong, nonatomic) NSManagedObjectModel
+*managedObjectModel;
+@property (strong, nonatomic) NSPersistentStoreCoordinator
+*persistentStoreCoordinator;
 - (void)saveContext;
+-(id) isRecordExistWithEntiryName:(NSString *) entityName withPredicate:(NSPredicate *) predicate;
 
+- (void)deleteAllEntities:(NSString *)nameEntity;
 
 @end
 

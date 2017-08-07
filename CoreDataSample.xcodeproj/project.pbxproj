@@ -14,6 +14,12 @@
 		E971657C1F2F7BF300365E59 /* CoreDataSample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E971657A1F2F7BF300365E59 /* CoreDataSample.xcdatamodeld */; };
 		E971657E1F2F7BF300365E59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E971657D1F2F7BF300365E59 /* Assets.xcassets */; };
 		E97165811F2F7BF300365E59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E971657F1F2F7BF300365E59 /* LaunchScreen.storyboard */; };
+		E97165921F2F7FE700365E59 /* Employee+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E971658F1F2F7FE700365E59 /* Employee+CoreDataClass.m */; };
+		E97165931F2F7FE700365E59 /* Employee+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E97165911F2F7FE700365E59 /* Employee+CoreDataProperties.m */; };
+		E97165961F2F82D200365E59 /* EmployeeDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E97165951F2F82D200365E59 /* EmployeeDBManager.m */; };
+		E9EBFD311F3496F700D28B8A /* Department+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E9EBFD2E1F3496F700D28B8A /* Department+CoreDataClass.m */; };
+		E9EBFD321F3496F700D28B8A /* Department+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E9EBFD301F3496F700D28B8A /* Department+CoreDataProperties.m */; };
+		E9EBFD351F34BDE900D28B8A /* DataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9EBFD341F34BDE900D28B8A /* DataTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +34,18 @@
 		E971657D1F2F7BF300365E59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E97165801F2F7BF300365E59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E97165821F2F7BF300365E59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E971658E1F2F7FE700365E59 /* Employee+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Employee+CoreDataClass.h"; path = "../Employee+CoreDataClass.h"; sourceTree = "<group>"; };
+		E971658F1F2F7FE700365E59 /* Employee+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Employee+CoreDataClass.m"; path = "../Employee+CoreDataClass.m"; sourceTree = "<group>"; };
+		E97165901F2F7FE700365E59 /* Employee+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Employee+CoreDataProperties.h"; path = "../Employee+CoreDataProperties.h"; sourceTree = "<group>"; };
+		E97165911F2F7FE700365E59 /* Employee+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Employee+CoreDataProperties.m"; path = "../Employee+CoreDataProperties.m"; sourceTree = "<group>"; };
+		E97165941F2F82D200365E59 /* EmployeeDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmployeeDBManager.h; sourceTree = "<group>"; };
+		E97165951F2F82D200365E59 /* EmployeeDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmployeeDBManager.m; sourceTree = "<group>"; };
+		E9EBFD2D1F3496F700D28B8A /* Department+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Department+CoreDataClass.h"; path = "../Department+CoreDataClass.h"; sourceTree = "<group>"; };
+		E9EBFD2E1F3496F700D28B8A /* Department+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Department+CoreDataClass.m"; path = "../Department+CoreDataClass.m"; sourceTree = "<group>"; };
+		E9EBFD2F1F3496F700D28B8A /* Department+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Department+CoreDataProperties.h"; path = "../Department+CoreDataProperties.h"; sourceTree = "<group>"; };
+		E9EBFD301F3496F700D28B8A /* Department+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Department+CoreDataProperties.m"; path = "../Department+CoreDataProperties.m"; sourceTree = "<group>"; };
+		E9EBFD331F34BDE900D28B8A /* DataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTableViewController.h; sourceTree = "<group>"; };
+		E9EBFD341F34BDE900D28B8A /* DataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +59,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E96425D51F38B4F800E25994 /* CoreDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				E97165941F2F82D200365E59 /* EmployeeDBManager.h */,
+				E97165951F2F82D200365E59 /* EmployeeDBManager.m */,
+				E9EBFD2D1F3496F700D28B8A /* Department+CoreDataClass.h */,
+				E9EBFD2E1F3496F700D28B8A /* Department+CoreDataClass.m */,
+				E9EBFD2F1F3496F700D28B8A /* Department+CoreDataProperties.h */,
+				E9EBFD301F3496F700D28B8A /* Department+CoreDataProperties.m */,
+				E971658E1F2F7FE700365E59 /* Employee+CoreDataClass.h */,
+				E971658F1F2F7FE700365E59 /* Employee+CoreDataClass.m */,
+				E97165901F2F7FE700365E59 /* Employee+CoreDataProperties.h */,
+				E97165911F2F7FE700365E59 /* Employee+CoreDataProperties.m */,
+			);
+			name = CoreDataModel;
+			sourceTree = "<group>";
+		};
 		E97165621F2F7BF300365E59 = {
 			isa = PBXGroup;
 			children = (
@@ -60,8 +95,11 @@
 		E971656D1F2F7BF300365E59 /* CoreDataSample */ = {
 			isa = PBXGroup;
 			children = (
+				E96425D51F38B4F800E25994 /* CoreDataModel */,
 				E97165711F2F7BF300365E59 /* AppDelegate.h */,
 				E97165721F2F7BF300365E59 /* AppDelegate.m */,
+				E9EBFD331F34BDE900D28B8A /* DataTableViewController.h */,
+				E9EBFD341F34BDE900D28B8A /* DataTableViewController.m */,
 				E97165741F2F7BF300365E59 /* ViewController.h */,
 				E97165751F2F7BF300365E59 /* ViewController.m */,
 				E97165771F2F7BF300365E59 /* Main.storyboard */,
@@ -154,9 +192,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E971657C1F2F7BF300365E59 /* CoreDataSample.xcdatamodeld in Sources */,
+				E9EBFD351F34BDE900D28B8A /* DataTableViewController.m in Sources */,
+				E9EBFD321F3496F700D28B8A /* Department+CoreDataProperties.m in Sources */,
 				E97165761F2F7BF300365E59 /* ViewController.m in Sources */,
 				E97165731F2F7BF300365E59 /* AppDelegate.m in Sources */,
+				E97165931F2F7FE700365E59 /* Employee+CoreDataProperties.m in Sources */,
+				E97165961F2F82D200365E59 /* EmployeeDBManager.m in Sources */,
+				E9EBFD311F3496F700D28B8A /* Department+CoreDataClass.m in Sources */,
 				E97165701F2F7BF300365E59 /* main.m in Sources */,
+				E97165921F2F7FE700365E59 /* Employee+CoreDataClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +359,7 @@
 				E97165871F2F7BF300365E59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

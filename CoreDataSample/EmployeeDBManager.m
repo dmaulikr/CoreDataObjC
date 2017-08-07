@@ -2,8 +2,8 @@
 //  LoginDBManager.m
 //  Vanified
 //
-//  Created by Abrars on 30/03/15.
-//  Copyright (c) 2015 Aich Technologies Pvt Ltd. All rights reserved.
+//  Created by MukeshLokare on 04/08/17.
+//  Copyright © 2017 smart. All rights reserved.
 //
 
 #import "EmployeeDBManager.h"
@@ -12,32 +12,6 @@
 @implementation EmployeeDBManager
 
 
-
--(void) saveEmplyeeDetails:(NSString *)empId andEmployeeName:(NSString *)empName andDeptId:(NSString *)deptId deptName:(NSString *)deptName{
-    
-    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    NSManagedObjectContext *context = [appDelegate managedObjectContext];
-
-    NSNumber *userid = [NSNumber numberWithInt:[empId intValue]];
-    NSNumber *departId = [NSNumber numberWithInt:[deptId intValue]];
-    
-    
-    Employee *empRecord = [NSEntityDescription insertNewObjectForEntityForName:@"Employee" inManagedObjectContext:context];
-    [empRecord setEmpName:empName];
-    [empRecord setEmpId:[userid intValue]];
-    [empRecord setDepartId:[departId intValue]];
-    
-    Department *departmentRecord = [NSEntityDescription insertNewObjectForEntityForName:@"Department" inManagedObjectContext:context];
-    [departmentRecord setDepartName:deptName];
-    [departmentRecord setDeprtId:[departId intValue]];
-    
-    [departmentRecord addEmployeesObject:empRecord];
-    
-    [appDelegate saveContext];
-
-
-}
 
 -(void) saveEmpDetails:(NSString *)empId andEmployeeName:(NSString *)empName andDeptId:(NSString *)deptId andDeptName:(NSString *)departName {
     
@@ -57,25 +31,49 @@
         [_fetchRecord setEmpName:empName];
         [_fetchRecord setEmpId:[userid intValue]];
         [_fetchRecord setDepartId:[departId intValue]];
-//        [_fetchRecord setDepartName:departName];
         
         [appDelegate saveContext];
         
     }else{
-        Employee *_user_Information = [NSEntityDescription
+        Employee *_emp_Information = [NSEntityDescription
                                             insertNewObjectForEntityForName:@"Employee"
                                             inManagedObjectContext:[appDelegate managedObjectContext]];
-            [_user_Information setEmpName:empName];
-            [_user_Information setEmpId:[userid intValue]];
-            [_user_Information setDepartId:[departId intValue]];
-//            [_user_Information setDepartName:departName];
+            [_emp_Information setEmpName:empName];
+            [_emp_Information setEmpId:[userid intValue]];
+            [_emp_Information setDepartId:[departId intValue]];
 
             [appDelegate saveContext];
     }
     
 }
 
--(Employee *)getUserProfileWithUserId:(NSString *)empId {
+-(void) saveEmplyeeDetails:(NSString *)empId andEmployeeName:(NSString *)empName andDeptId:(NSString *)deptId deptName:(NSString *)deptName{
+    
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    
+    NSNumber *userid = [NSNumber numberWithInt:[empId intValue]];
+    NSNumber *departId = [NSNumber numberWithInt:[deptId intValue]];
+    
+    
+    Employee *empRecord = [NSEntityDescription insertNewObjectForEntityForName:@"Employee" inManagedObjectContext:context];
+    [empRecord setEmpName:empName];
+    [empRecord setEmpId:[userid intValue]];
+    [empRecord setDepartId:[departId intValue]];
+    
+    Department *departmentRecord = [NSEntityDescription insertNewObjectForEntityForName:@"Department" inManagedObjectContext:context];
+    [departmentRecord setDepartName:deptName];
+    [departmentRecord setDeprtId:[departId intValue]];
+    
+    [departmentRecord addEmployeesObject:empRecord];
+    
+    [appDelegate saveContext];
+    
+    
+}
+
+-(Employee *)getEmployeeWithEmpId:(NSString *)empId {
  
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NSPredicate *_predicate = [NSPredicate predicateWithFormat:@"empId=%@",empId];
@@ -86,7 +84,7 @@
 
 
 
--(NSMutableArray *)getLoginUserDetailsFromDB{
+-(NSMutableArray *)getAllEmployeeDetailsFromDB{
     
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 
@@ -110,7 +108,7 @@
     
 }
 
--(NSMutableArray *)getUsersByDeptId:(NSString *)departID{
+-(NSMutableArray *)getEmployeeDetailsByDeptId:(NSString *)departID{
     
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
@@ -138,7 +136,7 @@
 }
 
 
--(void)deleteUserProfileWithUserID:(NSString * )empId {
+-(void)deleteEmployeeWithEmployeeID:(NSString * )empId {
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 
     NSPredicate *_predicate = [NSPredicate predicateWithFormat:@"empId=%@",empId];
@@ -147,11 +145,6 @@
         [[appDelegate managedObjectContext] deleteObject:_fetchRecord];
         [appDelegate saveContext];
     }
-}
-
--(void)deleteExistingUser{
-    
-    
 }
 
 - (void)deleteEntitiesWithName:(NSString *)nameEntity {

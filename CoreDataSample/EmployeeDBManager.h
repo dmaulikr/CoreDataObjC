@@ -2,7 +2,7 @@
 //  LoginDBManager.h
 //  Vanified
 //
-//  Created by Abrars on 30/03/15.
+//  Created by MukeshLokare on 04/08/17.
 //  Copyright (c) 2015 Aich Technologies Pvt Ltd. All rights reserved.
 //
 
@@ -16,13 +16,19 @@
 }
 
 -(void) saveEmpDetails:(NSString *)empId andEmployeeName:(NSString *)empName andDeptId:(NSString *)deptId andDeptName:(NSString *)departName;
--(Employee*)getUserProfileWithUserId:(NSString*)userId;
--(NSMutableArray *)getLoginUserDetailsFromDB;
--(NSMutableArray *)getUsersByDeptId:(NSString *)departID;
-- (void)deleteEntitiesWithName:(NSString *)nameEntity;
-- (void)deleteUserProfileWithUserID:(NSString *)empId;
 
 -(void) saveEmplyeeDetails:(NSString *)empId andEmployeeName:(NSString *)empName andDeptId:(NSString *)deptId deptName:(NSString *)deptName;
+
+
+-(Employee*)getEmployeeWithEmpId:(NSString*)empId;
+
+-(NSMutableArray *)getAllEmployeeDetailsFromDB;
+
+-(NSMutableArray *)getEmployeeDetailsByDeptId:(NSString *)departID;
+
+- (void)deleteEmployeeWithEmployeeID:(NSString *)empId;
+
+- (void)deleteEntitiesWithName:(NSString *)nameEntity;
 
 
 @end

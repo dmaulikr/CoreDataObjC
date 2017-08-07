@@ -2,17 +2,22 @@
 //  DataTableViewController.m
 //  CoreDataSample
 //
-//  Created by webwerks on 04/08/17.
+//  Created by MukeshLokare on 04/08/17.
 //  Copyright © 2017 smart. All rights reserved.
 //
 
 #import "DataTableViewController.h"
+#import "EmployeeDBManager.h"
 
-@interface DataTableViewController ()
+@interface DataTableViewController (){
+    EmployeeDBManager *empDBManager;
+
+}
 
 @end
 
 @implementation DataTableViewController
+@synthesize deptId,isFromSerach;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,6 +27,17 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    _managedObjectContext = [appDelegate managedObjectContext];
+    empDBManager = [[EmployeeDBManager alloc]init];
+    
+    if (!isFromSerach) {
+      _employeeArray = [empDBManager getAllEmployeeDetailsFromDB];
+    }else{
+     _employeeArray = [empDBManager getEmployeeDetailsByDeptId:deptId];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,24 +48,38 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+
+    return _employeeArray.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+  
+    static NSString *CellIdentifier = @"DataCell";
+    UITableViewCell *cell = nil;//[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+
     
-    // Configure the cell...
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                       reuseIdentifier:CellIdentifier];
+    }
+
+
+    Employee *employee = [_employeeArray objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"Emp Id: %d E-Name: %@",employee.empId,employee.empName];
+//    cell.detailTextLabel.text = [NSString stringWithFormat:@"ID : %d",employee.ofdepartment.deprtId];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Dept Id: %d D-Name: %@",employee.departId,employee.ofdepartment.departName];
+
+    
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
